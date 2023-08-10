@@ -1,0 +1,79 @@
+Warning: apt-key output should not be parsed (stdout is not a terminal)
+
+OK
+
+deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+
+Get:1 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+
+Hit:2 https://deb.nodesource.com/node_10.x focal InRelease
+
+Hit:3 http://dl.google.com/linux/chrome/deb stable InRelease
+
+Hit:4 http://archive.ubuntu.com/ubuntu focal InRelease
+
+Hit:5 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+
+Get:6 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
+
+Fetched 222 kB in 1s (224 kB/s)
+
+Reading package lists...
+
+Reading package lists...
+
+Building dependency tree...
+
+Reading state information...
+
+google-chrome-stable is already the newest version (115.0.5790.170-1).
+
+0 upgraded, 0 newly installed, 0 to remove and 124 not upgraded.
+
+Installing dependencies from Pipfile.lock (e58595)...
+
+To activate this project's virtualenv, run pipenv shell.
+
+Alternatively, run a command inside the virtualenv with pipenv run.
+
+====== WebDriver manager ======
+
+Current google-chrome version is 115.0.5790
+
+Get LATEST chromedriver version for 115.0.5790 google-chrome
+
+Traceback (most recent call last):
+
+  File "project/tests.py", line 12, in <module>
+
+    class TestSelenium(unittest.TestCase):
+
+  File "project/tests.py", line 16, in TestSelenium
+
+    driver = SeleniumUtil.createDriver()
+
+  File "/projects/challenge/project/util/seleniumUtil.py", line 30, in createDriver
+
+    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=options)
+
+  File "/home/user/.local/share/virtualenvs/challenge-M0t1kyQK/lib/python3.8/site-packages/webdriver_manager/chrome.py", line 32, in install
+
+    driver_path = self._get_driver_path(self.driver)
+
+  File "/home/user/.local/share/virtualenvs/challenge-M0t1kyQK/lib/python3.8/site-packages/webdriver_manager/manager.py", line 23, in _get_driver_path
+
+    driver_version = driver.get_version()
+
+  File "/home/user/.local/share/virtualenvs/challenge-M0t1kyQK/lib/python3.8/site-packages/webdriver_manager/driver.py", line 40, in get_version
+
+    return self.get_latest_release_version()
+
+  File "/home/user/.local/share/virtualenvs/challenge-M0t1kyQK/lib/python3.8/site-packages/webdriver_manager/driver.py", line 74, in get_latest_release_version
+
+    validate_response(resp)
+
+  File "/home/user/.local/share/virtualenvs/challenge-M0t1kyQK/lib/python3.8/site-packages/webdriver_manager/utils.py", line 80, in validate_response
+
+    raise ValueError("There is no such driver by url {}".format(resp.url))
+
+ValueError: There is no such driver by url https://chromedriver.storage.googleapis.com/LATEST_RELEASE_115.0.5790
